@@ -1,0 +1,11 @@
+Django>=5.2
+djangorestframework>=3.16
+djangorestframework-simplejwt>=5.5
+django-cors-headers>=4.8
+python-decouple>=3.8
+Pillow>=11.0
+PyPDF2>=3.0
+python-docx>=1.2
+google-generativeai>=0.8
+psycopg2-binary>=2.9
+dj-database-url>=3.1
