@@ -5,7 +5,6 @@ import {
   FileText,
   Target,
   Compass,
-  Briefcase,
   MessagesSquare,
   TrendingUp,
   ArrowRight,
@@ -14,6 +13,7 @@ import {
   Shield,
   Award,
   LogIn,
+  Layers,
 } from 'lucide-react';
 import Button from '../components/common/Button';
 import { useAuth } from '../context/AuthContext';
@@ -48,10 +48,10 @@ const Landing = () => {
       badge: 'Simulated Prep',
     },
     {
-      icon: Briefcase,
-      title: 'Smart Match Job Board',
-      description: 'Discover curated job openings matched mathematically against your verified skill set with real-time percentage fit.',
-      badge: 'Skill-Ranked Jobs',
+      icon: Layers,
+      title: 'Deep Competency Taxonomy',
+      description: 'Categorize verified and emerging skills across frontend, backend, AI, devops, and cloud infrastructure with proficiency tracking.',
+      badge: 'Skill Taxonomy',
     },
     {
       icon: TrendingUp,

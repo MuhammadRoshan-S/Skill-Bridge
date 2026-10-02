@@ -4,7 +4,6 @@ import {
   FileText,
   Target,
   Compass,
-  Briefcase,
   MessagesSquare,
   TrendingUp,
   ArrowRight,
@@ -48,6 +47,14 @@ const QUICK_ACTIONS = [
     path:     '/skill-gap',
     accent:   '#60a5fa',
     accentBg: 'rgba(96,165,250,0.08)',
+  },
+  {
+    label:    'Learning Roadmap',
+    desc:     'Follow your tailored step-by-step curriculum to master high-value competencies.',
+    icon:     Compass,
+    path:     '/roadmap',
+    accent:   '#34d399',
+    accentBg: 'rgba(52,211,153,0.08)',
   },
   {
     label:    'Interview Prep',
@@ -535,61 +542,76 @@ const Dashboard = () => {
             </div>
           </Card>
 
-          {/* ── Recommended Jobs ───────────────────────── */}
+          {/* ── AI Mock Interview Prep ────────────────── */}
           <Card
-            title="Recommended Jobs"
-            subtitle="Ranked by your verified skill profile"
-            icon={Briefcase}
+            title="AI Mock Interview"
+            subtitle="Real-time role-tailored technical evaluations"
+            icon={MessagesSquare}
             action={
-              <Link to="/jobs" style={{ textDecoration: 'none' }}>
+              <Link to="/interview-prep" style={{ textDecoration: 'none' }}>
                 <Button variant="secondary" size="sm" icon={ArrowRight}>
-                  View All
+                  Start Practice
                 </Button>
               </Link>
             }
           >
-            {data?.recommended_jobs && data.recommended_jobs.length > 0 ? (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                {data.recommended_jobs.slice(0, 4).map((job) => (
-                  <div
-                    key={job.id}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      padding: '10px 12px',
-                      borderRadius: 'var(--radius-sm)',
-                      background: 'rgba(255,255,255,0.025)',
-                      border: '1px solid var(--border-card)',
-                      transition: 'border-color 0.2s',
-                      cursor: 'pointer',
-                    }}
-                    onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--border-medium)')}
-                    onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border-card)')}
-                  >
-                    <div>
-                      <h4 style={{ fontSize: '0.845rem', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'var(--font-display)', letterSpacing: '-0.01em' }}>
-                        {job.title}
-                      </h4>
-                      <p style={{ fontSize: '0.73rem', color: 'var(--text-muted)', marginTop: '2px' }}>
-                        {job.company}
-                      </p>
-                    </div>
-                    <span className="badge badge-success">{job.match_score}%</span>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              <ProgressBar
+                value={interviewScore || 0}
+                variant="green"
+                striped
+                showLabel
+                label="Interview Readiness"
+                height="8px"
+              />
+
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: '8px',
+              }}>
+                <div style={{
+                  padding: '10px',
+                  borderRadius: 'var(--radius-sm)',
+                  background: 'rgba(255,255,255,0.025)',
+                  border: '1px solid var(--border-card)',
+                  textAlign: 'center',
+                }}>
+                  <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', fontWeight: 700, color: 'var(--electric-blue)', letterSpacing: '-0.03em' }}>
+                    {data?.total_interviews || 0}
                   </div>
-                ))}
+                  <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', marginTop: '2px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                    Sessions Created
+                  </div>
+                </div>
+
+                <div style={{
+                  padding: '10px',
+                  borderRadius: 'var(--radius-sm)',
+                  background: 'rgba(255,255,255,0.025)',
+                  border: '1px solid var(--border-card)',
+                  textAlign: 'center',
+                }}>
+                  <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', fontWeight: 700, color: 'var(--neon-green)', letterSpacing: '-0.03em' }}>
+                    {data?.completed_interviews || 0}
+                  </div>
+                  <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', marginTop: '2px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                    Completed
+                  </div>
+                </div>
               </div>
-            ) : (
-              <div style={{ textAlign: 'center', padding: '20px 0' }}>
-                <Briefcase size={32} color="var(--text-muted)" strokeWidth={1} style={{ marginBottom: '12px' }} />
-                <p style={{ color: 'var(--text-muted)', marginBottom: '16px', fontSize: '0.845rem', lineHeight: 1.5 }}>
-                  Discover jobs matched precisely to your skills and target salary range.
-                </p>
-                <Link to="/jobs" style={{ textDecoration: 'none' }}>
-                  <Button variant="primary" icon={Briefcase}>Discover Job Matches</Button>
+
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                  Avg Score: <strong style={{ color: 'var(--text-primary)' }}>{data?.avg_interview_score ? `${data.avg_interview_score}%` : 'N/A'}</strong>
+                </span>
+                <Link to="/interview-prep" style={{ textDecoration: 'none' }}>
+                  <Button variant="primary" size="sm" icon={MessagesSquare}>
+                    Practice Now
+                  </Button>
                 </Link>
               </div>
-            )}
+            </div>
           </Card>
         </div>
 

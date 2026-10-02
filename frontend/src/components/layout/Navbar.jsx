@@ -9,7 +9,6 @@ const PAGE_TITLES = {
   '/resume-analyzer': 'Resume Analyzer',
   '/skill-gap':       'Skill Gap Analysis',
   '/roadmap':         'Learning Roadmap',
-  '/jobs':            'Job Matches',
   '/interview-prep':  'Interview Prep',
   '/progress':        'Career Analytics',
   '/profile':         'My Profile',
@@ -128,18 +127,21 @@ const Navbar = ({ onToggleMobileSidebar }) => {
 
           {/* Notifications dropdown */}
           {showNotifications && (
-            <div style={{
-              position: 'absolute',
-              top: 'calc(100% + 8px)',
-              right: 0,
-              width: '300px',
-              background: '#141416',
-              border: '1px solid var(--border-card)',
-              borderRadius: 'var(--radius-md)',
-              padding: '14px',
-              boxShadow: 'var(--shadow-dropdown)',
-              zIndex: 60,
-            }}>
+            <div
+              className="dropdown-menu-responsive"
+              style={{
+                position: 'absolute',
+                top: 'calc(100% + 8px)',
+                right: 0,
+                width: '300px',
+                background: '#141416',
+                border: '1px solid var(--border-card)',
+                borderRadius: 'var(--radius-md)',
+                padding: '14px',
+                boxShadow: 'var(--shadow-dropdown)',
+                zIndex: 60,
+              }}
+            >
               <div style={{
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -235,18 +237,21 @@ const Navbar = ({ onToggleMobileSidebar }) => {
 
           {/* Profile Dropdown */}
           {showProfileMenu && (
-            <div style={{
-              position: 'absolute',
-              top: 'calc(100% + 8px)',
-              right: 0,
-              width: '220px',
-              background: '#141416',
-              border: '1px solid var(--border-card)',
-              borderRadius: 'var(--radius-md)',
-              padding: '6px',
-              boxShadow: 'var(--shadow-dropdown)',
-              zIndex: 60,
-            }}>
+            <div
+              className="dropdown-menu-responsive"
+              style={{
+                position: 'absolute',
+                top: 'calc(100% + 8px)',
+                right: 0,
+                width: '220px',
+                background: '#141416',
+                border: '1px solid var(--border-card)',
+                borderRadius: 'var(--radius-md)',
+                padding: '6px',
+                boxShadow: 'var(--shadow-dropdown)',
+                zIndex: 60,
+              }}
+            >
               {/* User info */}
               <div style={{
                 padding: '10px 12px',

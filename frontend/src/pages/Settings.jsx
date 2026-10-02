@@ -18,7 +18,7 @@ const Settings = () => {
   const [notifications, setNotifications] = useState({
     roadmapReminders: true,
     interviewFeedback: true,
-    jobMatches: true,
+    skillGapUpdates: true,
   });
   const [savedMsg, setSavedMsg] = useState('');
 
@@ -117,9 +117,9 @@ const Settings = () => {
                   desc: 'Receive immediate breakdown on answered questions',
                 },
                 {
-                  key: 'jobMatches',
-                  label: 'Smart Job Match Alerts',
-                  desc: 'When new positions match >75% of your skills',
+                  key: 'skillGapUpdates',
+                  label: 'Skill Gap & Industry Demand Alerts',
+                  desc: 'When industry benchmarks change for your target role',
                 },
               ].map((item) => (
                 <div

@@ -172,11 +172,11 @@ const Register = () => {
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '13px' }}>
 
             {/* First + Last Name row */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+            <div className="form-grid-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '10px' }}>
               <Input
                 label="First Name"
                 name="first_name"
-                placeholder="Alex"
+                placeholder="Enter first name"
                 value={formData.first_name}
                 onChange={handleChange}
                 autoComplete="given-name"
@@ -185,7 +185,7 @@ const Register = () => {
               <Input
                 label="Last Name"
                 name="last_name"
-                placeholder="Morgan"
+                placeholder="Enter last name"
                 value={formData.last_name}
                 onChange={handleChange}
                 autoComplete="family-name"
@@ -197,7 +197,7 @@ const Register = () => {
               label="Username"
               name="username"
               icon={UserIcon}
-              placeholder="alexmorgan"
+              placeholder="Enter username"
               value={formData.username}
               onChange={handleChange}
               autoComplete="username"
@@ -209,7 +209,7 @@ const Register = () => {
               name="email"
               type="email"
               icon={Mail}
-              placeholder="alex@example.com"
+              placeholder="Enter email address"
               value={formData.email}
               onChange={handleChange}
               autoComplete="email"
@@ -221,7 +221,7 @@ const Register = () => {
               name="password"
               type="password"
               icon={Lock}
-              placeholder="At least 8 characters"
+              placeholder="Enter password (min. 8 characters)"
               value={formData.password}
               onChange={handleChange}
               autoComplete="new-password"
@@ -233,7 +233,7 @@ const Register = () => {
               name="password_confirm"
               type="password"
               icon={Lock}
-              placeholder="Repeat your password"
+              placeholder="Confirm password"
               value={formData.password_confirm}
               onChange={handleChange}
               autoComplete="new-password"

@@ -8,7 +8,6 @@ import Dashboard from './pages/Dashboard';
 import ResumeAnalyzer from './pages/ResumeAnalyzer';
 import SkillGap from './pages/SkillGap';
 import LearningRoadmap from './pages/LearningRoadmap';
-import JobRecommendations from './pages/JobRecommendations';
 import InterviewPrep from './pages/InterviewPrep';
 import Progress from './pages/Progress';
 import Profile from './pages/Profile';
@@ -101,14 +100,6 @@ function App() {
               element={
                 <ProtectedRoute>
                   <LearningRoadmap />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/jobs"
-              element={
-                <ProtectedRoute>
-                  <JobRecommendations />
                 </ProtectedRoute>
               }
             />

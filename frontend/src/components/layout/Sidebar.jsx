@@ -5,7 +5,6 @@ import {
   FileText,
   Target,
   Compass,
-  Briefcase,
   MessagesSquare,
   TrendingUp,
   User,
@@ -31,7 +30,6 @@ const NAV_GROUPS = [
   {
     label: 'Tools',
     items: [
-      { label: 'Job Matches',    path: '/jobs',            icon: Briefcase },
       { label: 'Interview Prep', path: '/interview-prep',  icon: MessagesSquare },
       { label: 'Analytics',      path: '/progress',        icon: TrendingUp },
     ],

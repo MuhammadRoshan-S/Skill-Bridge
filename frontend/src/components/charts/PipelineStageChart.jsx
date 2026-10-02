@@ -61,7 +61,7 @@ const PipelineStageChart = ({
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '12px',
+          gap: 'clamp(4px, 1.5vw, 12px)',
           alignItems: 'flex-end',
           minHeight: '160px',
           marginTop: 'auto',
@@ -74,27 +74,32 @@ const PipelineStageChart = ({
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'flex-end',
-              gap: '10px',
+              gap: '8px',
+              minWidth: 0,
             }}
           >
             {/* Header with vertical colored accent bar */}
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                 <span
                   style={{
                     width: '3px',
-                    height: '14px',
+                    height: '12px',
                     backgroundColor: stage.color,
                     borderRadius: '2px',
                     display: 'inline-block',
+                    flexShrink: 0,
                   }}
                 />
                 <span
                   style={{
-                    fontSize: '0.8rem',
+                    fontSize: 'clamp(0.65rem, 2vw, 0.8rem)',
                     fontWeight: 600,
                     color: 'var(--text-secondary)',
                     letterSpacing: '-0.01em',
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
                   }}
                 >
                   {stage.label}
@@ -104,11 +109,14 @@ const PipelineStageChart = ({
               {/* Big Bold Stage Metric */}
               <div
                 style={{
-                  fontSize: '1.25rem',
+                  fontSize: 'clamp(0.85rem, 2.5vw, 1.25rem)',
                   fontWeight: 800,
                   color: 'var(--text-primary)',
-                  marginTop: '4px',
+                  marginTop: '2px',
                   letterSpacing: '-0.02em',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
                 }}
               >
                 {stage.value}
